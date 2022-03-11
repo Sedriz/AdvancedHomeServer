@@ -1,0 +1,61 @@
+version: '3.1'
+
+services:
+  advanced_home_backend:
+    image: 'sedrikde/advanced_home_backend:latest'
+    container_name: advanced_home_backend
+    ports:
+      - 8080:8080
+    build:
+      context: .
+    depends_on:
+      - db
+      - mosquitto
+    volumes:
+      - ./opt/spring_boot/logs:/workspace/application.log
+    environment:
+      - DB_URL=jdbc:postgresql://db:5432/smarthomedb
+      - MQTT_URL=tcp://mosquitto:1883
+    env_file:
+      - ./secret.env
+
+
+  db:
+    image: 'postgres'
+    ports:
+      - 5432:5432
+    container_name: postgres_db
+    restart: always
+    environment:
+      - POSTGRES_DB=smarthomedb
+    env_file:
+      - ./secret.env
+    volumes:
+      - ./opt/postgresql/data:/var/lib/postgresql/data
+
+
+  mosquitto:
+    image: 'eclipse-mosquitto'
+    ports:
+      - 1883:1883
+      - 9001:9001
+    container_name: mqtt
+    restart: always
+    entrypoint: /mosquitto/startup/start_commands.sh
+    environment:
+      - REPLACE_FILES=/mosquitto/config/mosquitto.conf
+      - MOSQUITTO_PASSWD_FILE=/mosquitto/passwd_folder/passwd
+      - MOSQUITTO_DATA_FOLDER=/mosquitto/data
+      - MOSQUITTO_LOG_FILE=/mosquitto/log/mosquitto.log
+      - MOSQUITTO_LOG_TYPE=error
+      - MOSQUITTO_PROTOCOL=mqtt
+      - MOSQUITTO_PORT=1883
+      - MOSQUITTO_PERSISTENCE=true
+    env_file:
+      - ./secret.env
+    volumes:
+      - ./opt/mosquitto/config:/mosquitto/config
+      - ./opt/mosquitto/data:/mosquitto/data
+      - ./opt/mosquitto/passwd_folder:/mosquitto/passwd_folder
+      - ./opt/mosquitto/startup:/mosquitto/startup
+      - ./opt/mosquitto/log:/mosquitto/log
