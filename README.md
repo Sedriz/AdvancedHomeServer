@@ -1,6 +1,6 @@
 # AdvancedHomeServer
 ###### created by SedrikDE
-The Backend application that your clients will talk to.
+The Backend application that your clients will talk to.  
 Works with Raspberry PI 4.
 
 Spring boot Application
@@ -33,12 +33,16 @@ main/998/
   "motionEvent": false
 }
 
+---
+
 2. Device event:
 ###### Topic:
 main/{deviceID}/{datatypeID}
 
 ###### Payload:
 JSON as defined
+
+---
 
 ## Help:
 #### MQTT Error:
