@@ -22,7 +22,8 @@ Spring boot Application
    2. Env. var in application-dev.yml
 
 ### MQTT Topics:
-1. Button event:
+---  
+Button event:
 ###### Topic:
 main/998/
 
@@ -35,7 +36,7 @@ main/998/
 
 ---
 
-2. Device event:
+Device event:
 ###### Topic:
 main/{deviceID}/{datatypeID}
 
@@ -46,7 +47,7 @@ JSON as defined
 
 ## Help:
 #### MQTT Error:
-#####MQTT Container Permission denied exception:
+##### MQTT Container Permission denied exception:
 ``sudo chmod -u+x /path/to/dir``
 
 #### Postgres db password or username wrong:
