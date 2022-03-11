@@ -1,0 +1,11 @@
+insert into device (name, location, type, button_controlled) values ('LightStripe', 'Partyzimmer', 'LIGHT', true);
+insert into device (name, location, type, button_controlled) values ('Light Stripe', 'Esszimmer', 'LIGHT', false);
+insert into device (name, location, type, button_controlled) values ('LightStripe2?', 'Wohnzimmer', 'LIGHT', true);
+insert into device (name, location, type, button_controlled) values ('ProgrammableLightStripe', 'Partyzimmer', 'PROGRAMMABLE_LIGHT', false);
+insert into device (name, location, type, button_controlled) values ('Programmable Light Stripe', 'Esszimmer', 'PROGRAMMABLE_LIGHT', true);
+insert into device (name, location, type, button_controlled) values ('ProgrammableLightStripe2', 'Wohnzimmer', 'PROGRAMMABLE_LIGHT', false);
+insert into device (name, location, type, button_controlled) values ('HumAndTempSensor', 'Partyzimmer', 'SENSOR', true);
+insert into device (name, location, type, button_controlled) values ('Hum And Temp Sensor', 'Esszimmer', 'SENSOR', false);
+insert into device (name, location, type, button_controlled) values ('HumAndTempSensor2?', 'Wohnzimmer', 'SENSOR', false);
+insert into device (name, location, type, button_controlled) values ('TeufelSpeaker', 'Partyzimmer', 'SPEAKER_REMOTE', true);
+insert into device (name, location, type, button_controlled) values ('TvRemote', 'Partyzimmer', 'TV_REMOTE', false);

@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+logging:
+  file:
+    path: application.log
+
+mqtt:
+  topic:
+    input: main/#
+    output:
+      selector: "device/"
+      command: "/command"
+      request: "/request"
+  client:
+    input: spring_boot_input
+    output: spring_boot_output
+
+device:
+  id:
+    status-led: 999
+    button-input: 998
+
+event:
+  button-event-expire-time: 300
+  request-scheduler-duration: 900000
+  motion-sensor-turn-off-duration: 300000

@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:smarthomedb;MODE=LEGACY
+    username: user
+    password: password
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console.enabled: true
+rest:
+  username: user
+  password: password
+mqtt:
+  url: tcp://localhost:1883
+  username: mosquitto
+  password: //password
