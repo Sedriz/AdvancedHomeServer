@@ -46,14 +46,20 @@ JSON as defined
 ---
 
 ## Help:
-#### MQTT Error:
-##### MQTT Container Permission denied exception:
+### MQTT Container Permission denied exception:
 ``sudo chmod -u+x /path/to/dir``
 
-#### Postgres db password or username wrong:
-Make sure that these variables in secret.env are the same:
-DB_USERNAME -> POSTGRES_USER
-DB_PASSWORD -> POSTGRES_PASSWORD
+
+### MQTT Container not starting:
+Error:  
+``standard_init_linux.go:190: exec user process caused "no such file or directory"`` 
+
+Fix:  
+Replace CRLF line endings with LF line endings.  
+If you are using Intellij you can archive this by clicking CRLF 
+on your toolbar in the bottom right of your window.
+https://stackoverflow.com/questions/51508150/standard-init-linux-go190-exec-user-process-caused-no-such-file-or-directory
+
 
 
 
