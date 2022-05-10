@@ -13,7 +13,7 @@ services:
     volumes:
       - ./opt/spring_boot/logs:/workspace/application.log
     environment:
-      - DB_URL=jdbc:postgresql://db:5432/smarthomedb
+      - DB_URL=jdbc:postgresql://db:5432/advanced_home_db
       - MQTT_URL=tcp://mosquitto:1883
     env_file:
       - ./secret.env
@@ -21,12 +21,12 @@ services:
 
   db:
     image: 'postgres'
+    container_name: advanced_home_db
     ports:
-      - 5432:5432
-    container_name: postgres_db
+      - "5432:5432"
     restart: always
     environment:
-      - POSTGRES_DB=smarthomedb
+      - POSTGRES_DB=advanced_home_db
     env_file:
       - ./secret.env
     volumes:
@@ -38,8 +38,7 @@ services:
     ports:
       - 1883:1883
       - 9001:9001
-    container_name: mqtt
-    restart: always
+    container_name: mosquitto
     entrypoint: /mosquitto/startup/start_commands.sh
     environment:
       - REPLACE_FILES=/mosquitto/config/mosquitto.conf
