@@ -576,10 +576,10 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 ### Docker-compose opt ###
-docker_advanced_home/opt/mosquitto/config
-docker_advanced_home/opt/mosquitto/data
-docker_advanced_home/opt/mosquitto/log
-docker_advanced_home/opt/mosquitto/passwd_folder
-docker_advanced_home/opt/postgresql
+opt/mosquitto/config
+opt/mosquitto/data
+opt/mosquitto/log
+opt/mosquitto/passwd_folder
+opt/postgresql
 
 # End of https://www.toptal.com/developers/gitignore/api/maven,java,intellij,visualstudio,visualstudiocode
