@@ -1,9 +1,12 @@
 package de.sedriz.smartboot.database.repository.model;
 
-import de.sedrik.videomanager.util.Quality;
+import de.sedriz.smartboot.database.entity.Video;
+import de.sedriz.smartboot.enums.Quality;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class VideoTest {
 

@@ -1,6 +1,9 @@
 package de.sedriz.smartboot.database.repository.util;
 
+import de.sedriz.smartboot.enums.Quality;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class QualityTest {
 

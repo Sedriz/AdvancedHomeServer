@@ -20,17 +20,17 @@ class IDeviceRepositoryTest {
     @Autowired
     private IDeviceRepository repo;
 
-    @Test
-    void findDevicesByDeviceType() {
-        assertThat(repo.findByTypeIsReachable(true));
-    }
-
-    @ParameterizedTest
-    @CsvSource({
-            "true, 5",
-            "false, 6",
-    })
-    void findDevicesByButtonStateChange(boolean isDeviceStateChange, int size) {
-        assertThat(repo.findDevicesByButtonControlled(isDeviceStateChange).size()).isEqualTo(size);
-    }
+//    @Test
+//    void findDevicesByDeviceType() {
+//        assertThat(repo.findByTypeIsReachable(true));
+//    }
+//
+//    @ParameterizedTest
+//    @CsvSource({
+//            "true, 5",
+//            "false, 6",
+//    })
+//    void findDevicesByButtonStateChange(boolean isDeviceStateChange, int size) {
+//        assertThat(repo.findDevicesByButtonControlled(isDeviceStateChange).size()).isEqualTo(size);
+//    }
 }
