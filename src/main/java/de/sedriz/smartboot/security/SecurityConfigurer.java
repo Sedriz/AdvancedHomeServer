@@ -25,18 +25,26 @@ import java.util.Map;
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     private final AccountLockedFilter accountLockedFilter;
 
-    @Value("${rest.username}")
-    private String restUsername;
+    @Value("${rest.user.username}")
+    private String userUsername;
+    @Value("${rest.user.password}")
+    private String userPassword;
 
-    @Value("${rest.password}")
-    private String restPassword;
+    @Value("${rest.admin.username}")
+    private String adminUsername;
+    @Value("${rest.admin.password}")
+    private String adminPassword;
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser(restUsername)
-                .password(passwordEncoder().encode(restPassword))
+                .withUser(userUsername)
+                .password(passwordEncoder().encode(userPassword))
                 .authorities("Role_User");
+        auth.inMemoryAuthentication()
+                .withUser(adminUsername)
+                .password(passwordEncoder().encode(adminPassword))
+                .authorities("Role_Admin");
     }
 
     @Override
