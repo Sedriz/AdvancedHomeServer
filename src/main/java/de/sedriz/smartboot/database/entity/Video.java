@@ -37,4 +37,8 @@ public class Video {
     @Column(name = "location", unique = true, nullable = false)
     private String location;
 
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "playlist_id", nullable = false)
+    private Playlist playlist;
+
 }

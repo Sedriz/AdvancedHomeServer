@@ -3,6 +3,7 @@ package de.sedriz.smartboot.database.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "playlist")
@@ -19,4 +20,7 @@ public class Playlist {
 
     @Column(name = "name", length = 50, nullable = false, unique = true)
     private String name;
+
+    @OneToMany(mappedBy = "video")
+    private Set<Video> videos;
 }
