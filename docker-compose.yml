@@ -7,6 +7,7 @@ services:
       - 8080:8080
     build:
       context: .
+    restart: always
     depends_on:
       - db
       - mosquitto
@@ -39,6 +40,7 @@ services:
       - 1883:1883
       - 9001:9001
     container_name: mosquitto
+    restart: always
     entrypoint: /mosquitto/startup/start_commands.sh
     environment:
       - REPLACE_FILES=/mosquitto/config/mosquitto.conf
